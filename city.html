@@ -26,9 +26,30 @@
           </li>
         </ul>
       </div>
-      <div class="grid-right"></div>
+      <div class="grid-right">
+        <form id="city-form">
+          <input type="text" placeholder="City" name="city" id="city" />
+          <input type="submit" value="Submit" />
+        </form>
+
+        <div class="weather"></div>
+      </div>
     </div>
 
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      let city_form = document.getElementById("city-form");
+
+      city_form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (event.target["city"].value) {
+          fetchWeather(event.target["city"].value).then(function (data) {
+            return buildWeather(data);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

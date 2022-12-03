@@ -26,9 +26,46 @@
           </li>
         </ul>
       </div>
-      <div class="grid-right"></div>
+      <div class="grid-right">
+        <form id="location-form">
+          <input
+            type="text"
+            placeholder="Latitude"
+            name="latitude"
+            id="latitude"
+          />
+          <input
+            type="text"
+            placeholder="Longitude"
+            name="longitude"
+            id="longitude"
+          />
+
+          <input type="submit" value="Submit" />
+        </form>
+
+        <div class="weather"></div>
+      </div>
     </div>
 
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      let location_form = document.getElementById("location-form");
+
+      location_form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (event.target["latitude"].value && event.target["longitude"].value) {
+          fetchWeather(
+            undefined,
+            event.target["latitude"].value,
+            event.target["longitude"].value
+          ).then(function (data) {
+            return buildWeather(data);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

@@ -35,5 +35,16 @@
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      navigator.geolocation.getCurrentPosition(function (position) {
+        fetchWeather(
+          undefined,
+          position.coords.latitude,
+          position.coords.longitude
+        ).then(function (data) {
+          return buildWeather(data);
+        });
+      });
+    </script>
   </body>
 </html>

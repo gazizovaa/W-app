@@ -51,4 +51,40 @@ body {
 }
 
 .grid-right {
+  padding: 20px;
+}
+
+.grid-right form input {
+  outline: none;
+}
+
+.grid-right form input[type="text"] {
+  padding: 4px;
+  font-size: 16px;
+}
+
+.grid-right form input[type="submit"] {
+  background-color: #e5e5e5;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.grid-right form input[type="submit"]:hover {
+  background-color: #d4d4d4;
+}
+
+.weather {
+  margin-top: 16px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+}
+
+.weather-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
