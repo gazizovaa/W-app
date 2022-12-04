@@ -113,6 +113,11 @@ async function buildWeather(data) {
     data.wind.deg
   )}</span>        
       </div>
+
+      <div class="weather-item">
+        <h4>Datetime</h4>
+        <span>${new Date(data.dt * 1000).toLocaleString("az-AZ")}</span>        
+      </div>
     </div>
   `;
 
